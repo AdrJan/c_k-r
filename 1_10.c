@@ -1,22 +1,26 @@
 #include <stdio.h>
 
+void putSpecEsc();
+
 int main() {
     int c;
-    
+
     while((c = getchar()) != EOF) {
         if(c == '\\') {
-            putchar('\\');
-            putchar('\\');
+            putSpecEsc('\\');
         }
         else if(c == '\t') {
-            putchar('\\');
-            putchar('t');
+            putSpecEsc('t');
         }
         else if(c == '\b') {
-            putchar('\\');
-            putchar('b');
+            putSpecEsc('b');
         } else {
             putchar(c);
         }
     }
+}
+
+void putSpecEsc(int c) {
+    putchar('\\');
+    putchar(c);
 }
