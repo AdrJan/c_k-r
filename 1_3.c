@@ -9,8 +9,8 @@ int main() {
 }
 
 void printHeader() {
-    printf("--CONVERSION--\n");
-    printf("Fahrad Celsius\n");
+    printf("----CONVERSION----\n");
+    printf("Fahrenheit Celsius\n");
 }
 
 void printConv() {
@@ -24,7 +24,7 @@ void printConv() {
     fahr = lower;
     while(fahr <= upper) {
         celsius = (5.0/9.0) * (fahr-32.0);
-        printf("%6.0f %7.1f\n", fahr, celsius);
+        printf("%10.0f %7.1f\n", fahr, celsius);
         fahr = fahr + step;
     }
 }
