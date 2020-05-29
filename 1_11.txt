@@ -1,0 +1,8 @@
+How should be checked program which is counting words from input? What type of input data could make it easier to find potential errors?
+
+We should check how output and how program reacts (errors?) for specific cases of input. For example:
+    - escape characters are used (for example - /t should divide words)
+    - digits and letters are mixed
+    - special characters are used (for example ^%@)
+    - newlines one after another
+    - empty input
