@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-void printHeader();
-void printConv();
+void print_header();
+void print_conv();
 
 int main() {
-    printHeader();
-    printConv();
+    print_header();
+    print_conv();
 }
 
-void printHeader() {
+void print_header() {
     printf("----CONVERSION----\n");
     printf("Fahrenheit Celsius\n");
 }
 
-void printConv() {
+void print_conv() {
     float fahr, celsius;
     int lower, upper, step;
 
