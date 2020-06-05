@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void print_header();
 void print_conv();
@@ -6,6 +7,8 @@ void print_conv();
 int main() {
     print_header();
     print_conv();
+
+    return EXIT_SUCCESS;
 }
 
 void print_header() {
