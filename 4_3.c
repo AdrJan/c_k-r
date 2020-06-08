@@ -26,11 +26,9 @@ int main()
 
     while ((type = getop(s)) != EOF)
     {
-        printf("[[ %c ]]\n", type);
         switch (type)
         {
         case NUMBER:
-            printf("%s", s);
             push(atof(s));
             break;
         case '+':
