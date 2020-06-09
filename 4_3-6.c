@@ -26,6 +26,7 @@ void push_dup(void);
 void top_swap(void);
 int getch(void);
 void ungetch(int);
+void ungets(char[]);
 void math_fun_exec(char[]);
 void stack_fun_exec(char[]);
 
@@ -230,4 +231,14 @@ void ungetch(int c)
         printf("ungetch: too many characters\n");
     else
         buf[bufp++] = c;
+}
+
+void ungets(char s[])
+{
+    int i = 0;
+    while(s[i] != '\0' && bufp < BUFSIZE)
+        buf[bufp++] = s[i++];
+
+    if(i != strlen(s) - 1)
+        printf("Ungets: too many characters\n");
 }
