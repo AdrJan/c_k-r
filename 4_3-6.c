@@ -9,11 +9,14 @@
 #define BUFSIZE 100
 #define VAR_S_LEN 1
 #define MATH_S_LEN 3
+#define MAX_ALPHABET 26
 
 #define NUMBER '0'
 #define MATH_OP '1'
 #define VAR_OP '2'
 #define STACK_OP '3'
+
+#define IS_USED 1
 
 int getop(char[]);
 void push(double);
@@ -31,6 +34,9 @@ double val[MAXVAL];
 char buf[BUFSIZE];
 int bufp = 0;
 double op2, op1;
+char var_val[MAX_ALPHABET];
+int var_used[MAX_ALPHABET];
+int var_id;
 
 int main()
 {
@@ -49,6 +55,16 @@ int main()
             break;
         case STACK_OP:
             stack_fun_exec(s);
+            break;
+        case VAR_OP:
+            var_id = s[0] - 'a';
+            if (!var_used[var_id])
+            {
+                var_val[var_id] = pop();
+                var_used[var_id] = IS_USED;
+            }
+            else
+                push(var_val[var_id]);
             break;
         case '+':
             push(pop() + pop());
