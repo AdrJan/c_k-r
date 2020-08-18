@@ -28,9 +28,9 @@ void my_strncpy(char *s, char *t, int n)
 {
     int i = 0;
 
-    while((*s != '\0' || *t != '\0') && i++ < n)
+    while ((*s != '\0' || *t != '\0') && i++ < n)
         *t++ = *s++;
-    if(i >= strlen(t))
+    if (i >= strlen(t))
         *t = '\0';
 }
 
@@ -38,10 +38,10 @@ void my_strncat(char *s, char *t, int n)
 {
     int i = 0;
     int t_len = strlen(t);
-    while(t_len-- > 0)
-        *t++;
 
-    while((*s != '\0' || *t != '\0') && i++ < n)
+    while (t_len-- > 0)
+        *t++;
+    while ((*s != '\0' || *t != '\0') && i++ < n)
         *t++ = *s++;
     *t = '\0';
 }
@@ -49,10 +49,11 @@ void my_strncat(char *s, char *t, int n)
 int my_strncmp(char *s, char *t, int n)
 {
     int i = 0;
-    while((*s != '\0' || *t != '\0') && i++ < n)
-        if(*s > *t)
+
+    while ((*s != '\0' || *t != '\0') && i++ < n)
+        if (*s > *t)
             return 1;
-        else if(*s++ < *t++)
+        else if (*s++ < *t++)
             return -1;
-    return 0;     
+    return 0;
 }
