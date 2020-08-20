@@ -1,3 +1,8 @@
+/**
+ *  Working program of 5.6 chapter in K&R.
+ *  Base for 5-7 exercise.
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
