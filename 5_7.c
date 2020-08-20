@@ -20,7 +20,7 @@ int main()
 {
     int nlines;
 
-    if ((nlines = readlines(lineptr, nlines)) >= 0)
+    if ((nlines = readlines(lineptr, MAXLINES)) >= 0)
     {
         qsort(lineptr, 0, nlines - 1);
         writelines(lineptr, nlines);
@@ -40,6 +40,7 @@ int readlines(char *lineptr[], int maxlines)
 
     nlines = 0;
     while ((len = getline(line, MAXLEN)) > 0)
+    {
         if (nlines >= maxlines)
             return -1;
         else
@@ -48,6 +49,7 @@ int readlines(char *lineptr[], int maxlines)
             strcpy(p, line);
             lineptr[nlines++] = p;
         }
+    }
     return nlines;
 }
 
@@ -56,7 +58,7 @@ void writelines(char *lineptr[], int nlines)
     int i;
 
     for (i = 0; i < nlines; i++)
-        printf("%s\n", lineptr[i]);
+        printf("%s", lineptr[i]);
 }
 
 void qsort(char *v[], int left, int right)
