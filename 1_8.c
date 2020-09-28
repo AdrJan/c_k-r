@@ -2,7 +2,6 @@
 
 int main() {
     int ws_cnt, c;
-
     ws_cnt = 0;
 
     while((c = getchar()) != EOF) {
