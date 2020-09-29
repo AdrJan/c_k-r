@@ -11,11 +11,12 @@ int getline(char s[], int lim);
 int getlines(char *lines[], int lim);
 void write_tail(char *lines[], int lines_c, int to_write_c);
 
-int main()
+int main(int argc, char *argv[])
 {
     int lines_c = getlines(lineptr, MAXLINES);
 
-    write_tail(lineptr, lines_c, 3);
+    if(argc == 1) write_tail(lineptr, lines_c, 5);
+    else write_tail(lineptr, lines_c, atoi(argv[1]));
 
     return EXIT_SUCCESS;
 }
@@ -30,18 +31,22 @@ void write_tail(char *lines[], int lines_c, int to_write_c)
 
 int getlines(char *lines[], int lim) 
 {
-    char *line;
+    char line[MAXLEN];
     int lines_c = 0;
     char *ptr;
     int len = 0;
 
-    while((lines_c > lim) && ((len = getline(line, MAXLEN)) > 0))
+    while((len = getline(line, MAXLEN)) > 0)
     {
-        ptr = (char *) malloc(len);
-        strcpy(ptr, line);
-        lines[lines_c++] = ptr;
+        if(lines_c >= lim)
+            return -1;
+        else
+        {
+            ptr = (char *) malloc(len);
+            strcpy(ptr, line);
+            lines[lines_c++] = ptr;
+        }
     }
-
     return lines_c;
 }
 
