@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     int lines_c = getlines(lineptr, MAXLINES);
 
     if(argc == 1) write_tail(lineptr, lines_c, 5);
-    else write_tail(lineptr, lines_c, atoi(argv[1]));
+    else write_tail(lineptr, lines_c, atoi(++argv[1]));
 
     return EXIT_SUCCESS;
 }
